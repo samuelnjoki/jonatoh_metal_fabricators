@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# After publishing, add your real-domain sitemap URL here.

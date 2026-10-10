@@ -1,0 +1,1 @@
+Place your local gallery image files in this folder, then add their paths to ../js/gallery-data.js (relative to the website root: images/gallery/filename.jpg).
