@@ -18,7 +18,7 @@ IMPORTANT: CONFIGURE THESE BEFORE PUBLISHING
 
 2) Business email
    File: js/config.js
-   Business email is configured as njokisamuel@gmil.com in js/config.js.
+   Business email is configured as njokisamuel79@gmil.com in js/config.js.
    Also update email in the JSON-LD block in index.html.
 
 3) Facebook and TikTok

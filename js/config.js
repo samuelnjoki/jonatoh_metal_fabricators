@@ -4,8 +4,8 @@
  */
 window.FORGECRAFT_CONFIG = {
   // WhatsApp international format, digits only. Kenyan 0799069642 becomes 254799069642.
-  whatsappNumber: "254799069642",
-  businessEmail: "njokisamuel@gmil.com",
+  whatsappNumber: "254748046342",
+  businessEmail: "Johnkamaunganga2022@gmail.com",
   social: {
     facebook: "https://www.facebook.com/share/1BdSj5urgs/",
     tiktok: "https://www.tiktok.com/@jonatohfabricatorske?_r=1&_t=ZS-9ARIa3LApJC"
