@@ -4,38 +4,11 @@
 /* .button-whatsapp{background:#178348;color:white} */
 .button-email{background:#e8edf7;color:#1d3f81}.hero-stats{display:flex;gap:45px;margin-top:68px}.hero-stats div{display:flex;flex-direction:column}.hero-stats strong{font:700 30px "Barlow Condensed",sans-serif;color:var(--orange)}.hero-stats span{font-size:11px;color:#c4c7c7}.hero-label{position:absolute;right:0;bottom:32px;writing-mode:vertical-rl;letter-spacing:3px;font-size:9px;color:#c5c7c7;padding-right:24px}.section{padding-block:88px}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.section h2,.feature-copy h2,.contact-aside h2,.form-heading h2,.gallery-intro h2{font:700 clamp(36px,4vw,54px)/1.02 "Barlow Condensed",sans-serif;text-transform:uppercase;margin:0 0 20px}.muted{color:var(--muted);font-size:14px}.text-link{display:inline-flex;gap:15px;align-items:center;font-size:12px;font-weight:700;border-bottom:1px solid var(--orange);padding:0 0 7px;margin-top:14px}.text-link span{color:var(--orange);font-size:18px}.services-band{background:var(--cream);padding:82px 0}.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:32px}.section-heading h2{margin-bottom:0}.service-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.service-card{background:#fff;padding:25px 23px 27px;min-height:250px;border-bottom:3px solid transparent;transition:border .2s,transform .2s}.service-card:hover{border-color:var(--orange);transform:translateY(-3px)}.service-number{font-size:9px;letter-spacing:1.4px;color:var(--muted);font-weight:700}.service-icon{font-size:34px;color:var(--orange);margin:27px 0 10px}.service-card h3,.value-grid h3,.gallery-card h3{font:700 25px/1.1 "Barlow Condensed",sans-serif;text-transform:uppercase;margin:0 0 11px}.service-card p,.value-grid p{font-size:12px;color:var(--muted);margin:0}.split-feature{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center}.feature-photo{min-height:440px;background:linear-gradient(0deg,rgba(0,0,0,.08),rgba(0,0,0,.08)),url("../images/gallery/welding-workshop.jpg") center/cover}.feature-copy .button{margin-top:15px}.check-list{list-style:none;padding:0;margin:24px 0}.check-list li{padding:8px 0;font-size:13px;border-bottom:1px solid var(--line)}.check-list li:before{content:"✓";color:var(--orange);font-weight:800;margin-right:12px}.quote-strip{background:var(--ink);color:#fff;padding:52px 0}.quote-strip-inner{display:flex;justify-content:space-between;align-items:center;gap:25px}.quote-strip h2{font:700 clamp(32px,4vw,48px)/1 "Barlow Condensed",sans-serif;text-transform:uppercase;margin:0}.quote-strip .eyebrow{margin-bottom:10px}.footer{background:#101214;color:#f5f4f0;padding:45px 0}.footer-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:25px;align-items:start}.brand-light{color:#fff}.footer p{color:#9ea2a3;font-size:12px;margin:7px 0}.footer-links,.social-links{display:flex;flex-direction:column;gap:8px;font-size:11px;color:#c4c6c6}.social-links{flex-direction:row;gap:14px}.social-links a:hover,.footer-links a:hover{color:var(--orange)}.copyright{grid-column:1/-1;border-top:1px solid #2c3032;padding-top:18px;color:#818687;font-size:10px}
 
-
-/* .floating-whatsapp {
-    position: fixed;
-    z-index: 999;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: #fff;
-    padding: 12px 17px;
-    border-radius: 40px;
-    box-shadow: 0 5px 22px #0003;
-    font-size: 13px;
-    font-weight: 700;
-    display: flex;
-    gap: 9px;
-    align-items: center;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.floating-whatsapp:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px #0004;
-} */
-
-
-
-.floating-whatsapp{position:fixed;z-index:999;
+.floating-whatsapp{position:fixed;z-index:9;
     bottom:20px;right:20px;
     /* background:#168447;color:#fff; */
-    /* padding:12px 17px;border-radius:40px;box-shadow:0 5px 22px #0003; */
-    /* font-size:13px;font-weight:700;display:flex;gap:9px;align-items:center */
+    padding:5px 8px;border-radius:40px;box-shadow:0 5px 22px #0003;
+    font-size:13px;font-weight:700;display:flex;gap:9px;align-items:center
 }
 .page-hero{background:var(--ink);color:#fff;padding:80px 0 78px;position:relative;overflow:hidden}.page-hero:after{content:"";position:absolute;width:340px;height:340px;border:45px solid #ffffff08;right:6%;top:-80px;transform:rotate(35deg)}
 .page-hero .container{position:relative;z-index:1}.page-hero h1{font-size:clamp(50px,6vw,78px);margin-bottom:17px}.page-hero p:not(.eyebrow){color:#b8bdbd;max-width:600px;font-size:14px}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:35px}.value-grid strong{font:700 35px "Barlow Condensed",sans-serif;color:var(--orange)}.value-grid h3{margin-top:13px}.service-detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 45px}.service-detail-grid article{padding:32px 0;border-bottom:1px solid var(--line)}.service-detail-grid h2{font:700 33px "Barlow Condensed",sans-serif;text-transform:uppercase;margin:15px 0 10px}.gallery-intro{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:center;margin-bottom:28px}.gallery-intro h2{margin-bottom:0}.gallery-filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 28px}.filter-button{border:1px solid var(--line);background:transparent;padding:9px 14px;font-size:11px;font-weight:700;cursor:pointer}.filter-button.selected,.filter-button:hover{background:var(--ink);border-color:var(--ink);color:#fff}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.gallery-card{background:#fff;border:1px solid #ece9e3;overflow:hidden}.gallery-card img{width:100%;height:245px;object-fit:cover;display:block;background:#e8e5df}.gallery-card img.image-missing{object-fit:contain;min-height:200px}.gallery-card-caption{padding:18px}.gallery-card h3{margin:9px 0 12px}.gallery-quote-link{font-size:11px;font-weight:700;color:#b94e16}.gallery-note{font-size:11px;color:var(--muted);margin-top:25px}.contact-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:start}.contact-aside h2{font-size:43px}.contact-method{display:flex;gap:15px;border-top:1px solid var(--line);padding:19px 0}.method-icon{color:var(--orange);font-size:23px}.contact-method strong{font-size:13px}.contact-method p{font-size:12px;color:var(--muted);margin:5px 0}.contact-method a{font-size:12px;font-weight:700;color:#b94e16}.quote-form-wrap{background:#fff;padding:34px;border:1px solid #e8e5df;box-shadow:0 8px 30px #24282c08}.form-heading h2{font-size:38px;margin-bottom:9px}.form-heading .muted{font-size:12px;margin-bottom:25px}form label{display:flex;flex-direction:column;gap:7px;font-size:11px;font-weight:700;margin-bottom:15px}input,select,textarea{width:100%;border:1px solid #dcd9d2;background:#fbfaf8;padding:12px;color:var(--ink);font-size:12px;border-radius:0;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--orange)}textarea{resize:vertical}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}.send-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.send-options .button{min-height:52px;padding:13px 10px}.form-status{font-size:12px;background:#f3f0ea;padding:12px;margin:14px 0;color:#414649}.fine-print{font-size:10px;color:#777c80;line-height:1.5}.button:disabled{opacity:.6;cursor:wait}
@@ -57,7 +30,10 @@
 /* Compact gallery and fixed social shortcuts */
 .gallery-more-wrap{display:flex;justify-content:center;margin-top:28px}.gallery-more-wrap [hidden]{display:none}
 .floating-whatsapp{bottom:20px}
-.floating-socials{position:fixed;z-index:9;right:24px;bottom:84px;display:flex;flex-direction:column;gap:10px}.floating-social{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:24px;box-shadow:0 4px 16px #0003;border:2px solid #fff}.floating-facebook{background:#1877f2;font-family:Arial,sans-serif}.floating-tiktok{background:#111;font-size:25px;text-shadow:2px 0 #25f4ee,-2px 0 #fe2c55}@media(max-width:700px){.floating-socials{right:15px;bottom:78px;gap:8px}.floating-social{width:40px;height:40px}
+.floating-socials{position:fixed;z-index:9;right:24px;bottom:84px;display:flex;flex-direction:column;gap:10px}.floating-social{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:24px;box-shadow:0 4px 16px #0003;border:2px solid #fff}
+.floating-facebook{background:#1877f2;font-family:Arial,sans-serif}
+.floating-tiktok{background:#111;font-size:25px;text-shadow:2px 0 #25f4ee,-2px 0 #fe2c55}
+@media(max-width:700px){.floating-socials{right:15px;bottom:78px;gap:8px}.floating-social{width:40px;height:40px}
 .floating-whatsapp{right:15px;bottom:15px;padding:11px 14px}
 .gallery-more-wrap{margin-top:22px}}
 
@@ -245,3 +221,95 @@
 @keyframes teamMembersDrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:700px){.team-grid.team-marquee .team-card{flex-basis:250px;width:250px}.team-grid.team-marquee{animation-duration:150s}}
 @media(prefers-reduced-motion:reduce){.team-grid.team-marquee{animation:none;flex-wrap:wrap;width:100%;justify-content:center}.team-grid.team-marquee .team-card{flex:1 1 250px}}
+
+
+/* Dedicated team page, clickable homepage profiles and floating controls. */
+.team-card-link{display:block;color:inherit;text-decoration:none;cursor:pointer;transition:transform .22s,box-shadow .22s,border-color .22s}
+.team-card-link:hover,.team-card-link:focus-visible{transform:translateY(-4px);box-shadow:0 16px 36px #171a1d18;border-color:#c18a17;outline:none}
+.team-card-link:focus-visible{outline:3px solid #d6a42b;outline-offset:3px}
+.owner-portrait-link{display:block;position:relative;text-decoration:none;cursor:pointer}
+.owner-portrait-link img{transition:transform .3s}.owner-portrait-link:hover img{transform:scale(1.025)}
+.team-cta{background:#f4f1ea;text-align:center;padding-block:64px}.team-cta h2{font:700 clamp(34px,4vw,48px)/1.05 "Barlow Condensed",sans-serif;text-transform:uppercase;margin:10px 0}.team-cta .muted{max-width:620px;margin:0 auto 22px}
+.back-to-top{right:auto;left:50%;bottom:22px;transform:translate(-50%,10px)}
+.back-to-top.is-visible{transform:translate(-50%,0)}
+@media(max-width:700px){
+ .floating-socials{right:15px;bottom:15px;flex-direction:row;align-items:center;gap:8px}
+ .floating-whatsapp{right:calc(15px + 3 * 40px + 16px);bottom:15px;width:40px;height:40px;min-width:40px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;gap:0;box-sizing:border-box}
+ .floating-whatsapp img{display:block;width:23px;height:23px;object-fit:contain}
+ .floating-whatsapp span{display:none}
+ .back-to-top{left:50%;right:auto;bottom:68px;width:42px;height:42px;transform:translate(-50%,10px)}
+ .back-to-top.is-visible{transform:translate(-50%,0)}
+}
+@media(prefers-reduced-motion:reduce){.team-card-link,.owner-portrait-link img{transition:none}}
+
+/* Consistent WhatsApp green across floating contact and all WhatsApp buttons. */
+.floating-whatsapp,
+.footer-whatsapp,
+.button-whatsapp,
+a[data-whatsapp-link].button,
+.send-options .button-whatsapp {
+  background: #168447 !important;
+  color: #fff !important;
+  border-color: #168447 !important;
+}
+.floating-whatsapp { padding: 9px 13px; border-radius: 999px; box-shadow: 0 5px 22px #0004; }
+.floating-whatsapp:hover,.footer-whatsapp:hover,.button-whatsapp:hover { background:#106b38 !important; }
+.team-jump-tools{display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:10px 12px;align-items:end;padding:18px;background:#fff;border:1px solid #e7e3dc;margin:25px 0 18px}
+.team-jump-tools label{grid-column:1/-1;font-size:12px;font-weight:800;letter-spacing:.3px}
+.team-jump-tools select{min-height:48px;background:#fbfaf8}
+.team-jump-tools p{grid-column:1/-1;margin:0;color:#777c80;font-size:11px}
+.team-card[id],.owner-portrait[id]{scroll-margin-top:100px}
+@media(max-width:700px){
+ .floating-socials{right:15px;bottom:15px;flex-direction:row;align-items:center;gap:8px}
+ .floating-whatsapp{right:111px;bottom:15px;width:40px;height:40px;min-width:40px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;gap:0;box-sizing:border-box}
+ .floating-whatsapp img{display:block;width:23px;height:23px;object-fit:contain}
+ .floating-whatsapp span{display:none}
+ .team-jump-tools{grid-template-columns:1fr;padding:14px}
+ .team-jump-tools label,.team-jump-tools p{grid-column:auto}
+}
+
+
+/* Clear manual team browsing controls and consistent desktop WhatsApp pill on every page. */
+.team-next-controls{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0 4px;margin-top:8px}
+.team-next-controls button{min-width:170px}
+#team-member-position{font-size:12px;font-weight:800;letter-spacing:.6px;color:#656b6e;text-align:center;white-space:nowrap}
+/* Keep the floating WhatsApp contact as a visible green pill on desktop across all pages. */
+@media(min-width:701px){
+ .floating-whatsapp{position:fixed!important;right:24px!important;bottom:24px!important;left:auto!important;width:auto!important;height:auto!important;min-width:0!important;padding:12px 17px!important;border-radius:999px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;background:#168447!important;color:#fff!important;box-shadow:0 6px 22px #0004!important;z-index:1000!important}
+ .floating-whatsapp img{display:block;width:24px;height:24px;object-fit:contain}
+ .floating-whatsapp span{display:inline!important;color:#fff!important}
+}
+@media(max-width:700px){.team-next-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}.team-next-controls #team-member-position{grid-column:1/-1;grid-row:1}.team-next-controls button{min-width:0;width:100%;padding:12px 8px}}
+
+
+/* Final requested controls: simple < and > over the moving team strip, and equal-sized floating social icons. */
+.team-next-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin:12px 0 8px;padding:0}
+.team-arrow{display:grid;place-items:center;width:42px;height:42px;min-width:42px!important;padding:0!important;border:1px solid #d2a02b!important;border-radius:50%!important;background:#171a1d!important;color:#fff!important;font-size:28px!important;line-height:1;cursor:pointer;transition:background .2s,transform .2s}
+.team-arrow:hover,.team-arrow:focus-visible{background:#168447!important;transform:scale(1.06);outline:2px solid #d2a02b;outline-offset:2px}
+#team-member-position{min-width:120px;text-align:center;font-size:11px;color:#72777a}
+.floating-socials{position:fixed!important;right:24px!important;bottom:24px!important;left:auto!important;top:auto!important;z-index:1001!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:9px!important}
+.floating-social{width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;box-sizing:border-box!important;padding:0!important;display:grid!important;place-items:center!important;border-radius:50%!important;overflow:hidden}
+.floating-whatsapp{position:static!important;right:auto!important;bottom:auto!important;left:auto!important;top:auto!important;width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;padding:0!important;display:grid!important;place-items:center!important;box-sizing:border-box!important;border:2px solid #fff!important;border-radius:50%!important;background:#168447!important;color:#fff!important;box-shadow:0 4px 16px #0003!important;gap:0!important}
+.floating-whatsapp img{display:block!important;width:24px!important;height:24px!important;object-fit:contain!important}
+.floating-whatsapp span{display:none!important}
+.floating-facebook .social-icon svg,.floating-tiktok .social-icon svg{display:block;width:22px;height:22px}
+@media(max-width:700px){.floating-socials{right:15px!important;bottom:15px!important;gap:8px!important}.floating-social,.floating-whatsapp{width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important}.floating-whatsapp img{width:22px!important;height:22px!important}.team-next-controls{gap:12px}.team-arrow{width:40px;height:40px;min-width:40px!important}}
+@media(prefers-reduced-motion:reduce){.team-arrow{transition:none}}
+
+
+/* Team carousel arrows sit on the left and right edges of the moving portrait strip. */
+.team-marquee-viewport{position:relative;isolation:isolate;padding:0 2px}
+.team-carousel-arrow{position:absolute;top:50%;z-index:5;transform:translateY(-50%);display:grid;place-items:center;width:46px;height:46px;border:2px solid #d2a02b;border-radius:50%;background:rgba(23,26,29,.94);color:#fff;font-size:34px;line-height:1;cursor:pointer;box-shadow:0 4px 18px #0004;transition:background .2s,scale .2s}
+.team-carousel-prev{left:8px}
+.team-carousel-next{right:8px}
+.team-carousel-arrow:hover,.team-carousel-arrow:focus-visible{background:#168447;scale:1.06;outline:2px solid #d2a02b;outline-offset:2px}
+@media(max-width:700px){.team-carousel-arrow{width:38px;height:38px;font-size:29px}.team-carousel-prev{left:5px}.team-carousel-next{right:5px}}
+
+/* Final carousel interaction feedback: stay within the site's charcoal, silver and gold palette. */
+.team-carousel-arrow:hover{background:#171a1d!important;color:#f2b52a!important;border-color:#f2b52a!important;transform:translateY(-50%) scale(1.07)!important}
+.team-carousel-arrow:focus-visible,.team-carousel-arrow.is-clicked{background:#b47a13!important;color:#171a1d!important;border-color:#f2b52a!important;outline:3px solid #f2b52a!important;outline-offset:3px!important;box-shadow:0 0 0 6px #b47a1333,0 4px 18px #0005!important}
+.team-carousel-arrow:active{transform:translateY(-50%) scale(.94)!important}
+.team-marquee-viewport.team-carousel-feedback{box-shadow:inset 0 0 0 2px #d2a02b;transition:box-shadow .12s ease}
+.team-marquee-viewport .team-card.is-carousel-focused{outline:3px solid #d2a02b;outline-offset:-3px;box-shadow:0 0 0 4px #d2a02b55;filter:brightness(1.06);animation:teamCardFocus .45s ease-out}
+@keyframes teamCardFocus{0%{transform:scale(.97)}65%{transform:scale(1.015)}100%{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.team-marquee-viewport .team-card.is-carousel-focused{animation:none}}

@@ -132,6 +132,45 @@
     }
   });
 
+  // Edge arrows advance the continuously moving team carousel without stopping its right-to-left motion.
+  const teamViewport = document.querySelector(".team-marquee-viewport");
+  const teamTrack = teamViewport?.querySelector(".team-grid");
+  let teamFocusIndex = 0;
+  let teamFeedbackTimer;
+  const shiftTeamCarousel = (direction, button) => {
+    if (!teamViewport || !teamTrack) return;
+    const cards = Array.from(teamTrack.querySelectorAll(":scope > .team-card:not([aria-hidden='true'])"));
+    if (!cards.length) return;
+    const step = cards[0].getBoundingClientRect().width + (parseFloat(getComputedStyle(teamTrack).gap) || 18);
+    const animation = teamTrack.getAnimations().find(a => a.playState !== "finished");
+    if (animation && animation.effect) {
+      const timing = animation.effect.getTiming();
+      const duration = Number(timing.duration) || 180000;
+      const fullDistance = Math.max(1, teamTrack.scrollWidth / (teamTrack.classList.contains("team-marquee") ? 2 : 1));
+      const delta = (step / fullDistance) * duration;
+      const current = Number(animation.currentTime) || 0;
+      animation.currentTime = Math.max(0, current + (direction * delta));
+    } else {
+      teamTrack.scrollLeft += direction * step;
+    }
+    teamFocusIndex = (teamFocusIndex + direction + cards.length) % cards.length;
+    teamViewport.querySelectorAll(".team-card.is-carousel-focused").forEach(card => card.classList.remove("is-carousel-focused"));
+    cards[teamFocusIndex]?.classList.add("is-carousel-focused");
+    teamViewport.classList.remove("team-carousel-feedback");
+    void teamViewport.offsetWidth;
+    teamViewport.classList.add("team-carousel-feedback");
+    teamViewport.querySelectorAll(".team-carousel-arrow").forEach(arrow => arrow.classList.remove("is-clicked"));
+    button?.classList.add("is-clicked");
+    clearTimeout(teamFeedbackTimer);
+    teamFeedbackTimer = setTimeout(() => {
+      teamViewport.classList.remove("team-carousel-feedback");
+      teamViewport.querySelectorAll(".team-carousel-arrow").forEach(arrow => arrow.classList.remove("is-clicked"));
+      teamViewport.querySelectorAll(".team-card.is-carousel-focused").forEach(card => card.classList.remove("is-carousel-focused"));
+    }, 1100);
+  };
+  teamViewport?.querySelector(".team-carousel-prev")?.addEventListener("click", event => shiftTeamCarousel(-1, event.currentTarget));
+  teamViewport?.querySelector(".team-carousel-next")?.addEventListener("click", event => shiftTeamCarousel(1, event.currentTarget));
+
   // Recognizable social platform icons with accessible link labels retained in HTML.
   const socialSvg = {
     facebook: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4z"/></svg>',
