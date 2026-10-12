@@ -313,3 +313,18 @@ a[data-whatsapp-link].button,
 .team-marquee-viewport .team-card.is-carousel-focused{outline:3px solid #d2a02b;outline-offset:-3px;box-shadow:0 0 0 4px #d2a02b55;filter:brightness(1.06);animation:teamCardFocus .45s ease-out}
 @keyframes teamCardFocus{0%{transform:scale(.97)}65%{transform:scale(1.015)}100%{transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.team-marquee-viewport .team-card.is-carousel-focused{animation:none}}
+
+/* Workshop location and embedded map: charcoal, silver and gold brand palette. */
+.location-section{background:#f4f4f2;padding-top:76px;padding-bottom:76px}
+.location-heading{max-width:760px;margin:0 auto 28px;text-align:center}
+.location-heading h2{margin:8px 0 14px}
+.location-heading .muted{max-width:680px;margin:0 auto 20px;line-height:1.75}
+.location-directions{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.location-map-wrap{max-width:1100px;margin:0 auto;border:1px solid #d2a02b;border-radius:18px;overflow:hidden;box-shadow:0 18px 45px #0002;background:#ddd}
+.location-map-wrap iframe{display:block;width:100%;height:430px;border:0}
+/* Larger floating social/contact buttons, stacked vertically on desktop and mobile. */
+.floating-socials{flex-direction:column!important;align-items:center!important;gap:12px!important;right:22px!important;bottom:22px!important}
+.floating-social,.floating-whatsapp{width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important}
+.floating-whatsapp img{width:29px!important;height:29px!important}
+.floating-facebook .social-icon svg,.floating-tiktok .social-icon svg{width:27px!important;height:27px!important}
+@media(max-width:700px){.location-section{padding-top:52px;padding-bottom:52px}.location-map-wrap iframe{height:330px}.floating-socials{right:14px!important;bottom:14px!important;gap:10px!important}.floating-social,.floating-whatsapp{width:48px!important;height:48px!important;min-width:48px!important;min-height:48px!important}.floating-whatsapp img{width:27px!important;height:27px!important}.floating-facebook .social-icon svg,.floating-tiktok .social-icon svg{width:25px!important;height:25px!important}}
