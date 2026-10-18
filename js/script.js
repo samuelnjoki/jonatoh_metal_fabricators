@@ -282,18 +282,23 @@
       if (targetImage) {
         selected = "All"; searchTerm = ""; showAll = true;
         renderFilters(); renderGallery();
-        window.setTimeout(() => {
+        const locateAndHighlight = (attempt = 0) => {
           const target = Array.from(gallery.querySelectorAll(".gallery-card img")).find(img => {
-            const source = (img.getAttribute("src") || "").split("/").pop();
-            return source.toLowerCase() === targetImage.toLowerCase();
+            const source = (img.getAttribute("src") || img.src || "").split("/").pop().split("?")[0];
+            return decodeURIComponent(source).toLowerCase() === decodeURIComponent(targetImage).toLowerCase();
           });
           if (target) {
             const card = target.closest(".gallery-card");
+            if (!card) return;
+            gallery.querySelectorAll(".project-deep-link-highlight").forEach(item => item.classList.remove("project-deep-link-highlight"));
             card.classList.add("project-deep-link-highlight");
-            card.scrollIntoView({behavior: "smooth", block: "center"});
-            window.setTimeout(() => card.classList.remove("project-deep-link-highlight"), 5000);
+            card.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center"});
+            window.setTimeout(() => card.classList.remove("project-deep-link-highlight"), 7000);
+          } else if (attempt < 12) {
+            window.setTimeout(() => locateAndHighlight(attempt + 1), 180);
           }
-        }, 250);
+        };
+        window.setTimeout(() => locateAndHighlight(), 150);
       }
     }
   }
@@ -325,27 +330,28 @@
   window.addEventListener("scroll", updateBackTop, { passive: true }); updateBackTop();
   backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-  // Homepage recent projects: show three cards at a time with a cross-fade.
+  // Homepage recent projects: slide each three-card set smoothly from right to left.
   const recentProjectsGrid = document.getElementById("recent-project-grid");
   if (recentProjectsGrid && recentProjectsGrid.querySelectorAll(".recent-project").length > 3) {
     const recentCards = Array.from(recentProjectsGrid.querySelectorAll(".recent-project"));
     let recentPage = 0; let recentTimer;
     const showRecentPage = (page) => {
       recentPage = (page + Math.ceil(recentCards.length / 3)) % Math.ceil(recentCards.length / 3);
-      recentProjectsGrid.classList.add("recent-fading-out");
+      recentProjectsGrid.classList.remove("recent-slide-in");
+      recentProjectsGrid.classList.add("recent-slide-out");
       window.setTimeout(() => {
         recentCards.forEach((card, i) => { card.hidden = !(Math.floor(i / 3) === recentPage); });
-        recentProjectsGrid.classList.remove("recent-fading-out");
-        recentProjectsGrid.classList.add("recent-fading-in");
-        window.setTimeout(() => recentProjectsGrid.classList.remove("recent-fading-in"), 900);
-      }, 700);
+        recentProjectsGrid.classList.remove("recent-slide-out");
+        recentProjectsGrid.classList.add("recent-slide-in");
+        window.setTimeout(() => recentProjectsGrid.classList.remove("recent-slide-in"), 520);
+      }, 420);
       const status = document.getElementById("recent-slide-status");
       if (status) status.textContent = `Projects ${recentPage * 3 + 1}–${Math.min((recentPage + 1) * 3, recentCards.length)} of ${recentCards.length}`;
     };
     recentCards.forEach((card, i) => { card.hidden = i >= 3; });
     document.getElementById("recent-prev")?.addEventListener("click", () => { showRecentPage(recentPage - 1); restartRecentTimer(); });
     document.getElementById("recent-next")?.addEventListener("click", () => { showRecentPage(recentPage + 1); restartRecentTimer(); });
-    const restartRecentTimer = () => { window.clearInterval(recentTimer); recentTimer = window.setInterval(() => showRecentPage(recentPage + 1), 6000); };
+    const restartRecentTimer = () => { window.clearInterval(recentTimer); recentTimer = window.setInterval(() => showRecentPage(recentPage + 1), 6500); };
     restartRecentTimer();
     recentProjectsGrid.querySelectorAll(".recent-project").forEach(card => card.addEventListener("click", () => { try { sessionStorage.setItem("jonatoh-project-target", new URL(card.href).searchParams.get("image") || ""); } catch (_) {} }));
   }

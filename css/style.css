@@ -337,3 +337,16 @@ a[data-whatsapp-link].button,
 @keyframes recentProjectsFadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 .gallery-card.recent-target-highlight{outline:3px solid #d2a02b;outline-offset:3px;animation:recentProjectsFadeIn .65s ease both}
 @media(prefers-reduced-motion:reduce){.recent-project-grid-fading,.recent-project-grid-fading.recent-fading-in{animation:none;transition:none}}
+
+
+/* Recent Projects: stable three-card groups slide right-to-left without flicker. */
+.recent-project-grid-fading{overflow:hidden;transition:none!important;will-change:transform,opacity}
+.recent-project-grid-fading .recent-project{transition:transform .42s cubic-bezier(.22,.61,.36,1),opacity .42s ease}
+.recent-project-grid-fading.recent-slide-out .recent-project:not([hidden]){transform:translateX(-36px);opacity:0}
+.recent-project-grid-fading.recent-slide-in .recent-project:not([hidden]){animation:recentCardsEnterFromRight .48s cubic-bezier(.22,.61,.36,1) both}
+@keyframes recentCardsEnterFromRight{from{transform:translateX(42px);opacity:0}to{transform:translateX(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.recent-project-grid-fading .recent-project{transition:none!important}.recent-project-grid-fading.recent-slide-in .recent-project:not([hidden]){animation:none!important}}
+
+/* Deep-linked project highlight (projects.html loads style.css). */
+.gallery-card.project-deep-link-highlight{outline:4px solid #d2a02b!important;outline-offset:4px!important;box-shadow:0 0 0 8px #d2a02b44,0 0 32px #d2a02bcc!important;position:relative;z-index:5;animation:projectTargetPulse 1s ease-in-out 3!important;border-radius:3px}
+@keyframes projectTargetPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22)}}
