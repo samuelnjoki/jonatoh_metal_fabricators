@@ -328,3 +328,12 @@ a[data-whatsapp-link].button,
 .floating-whatsapp img{width:29px!important;height:29px!important}
 .floating-facebook .social-icon svg,.floating-tiktok .social-icon svg{width:27px!important;height:27px!important}
 @media(max-width:700px){.location-section{padding-top:52px;padding-bottom:52px}.location-map-wrap iframe{height:330px}.floating-socials{right:14px!important;bottom:14px!important;gap:10px!important}.floating-social,.floating-whatsapp{width:48px!important;height:48px!important;min-width:48px!important;min-height:48px!important}.floating-whatsapp img{width:27px!important;height:27px!important}.floating-facebook .social-icon svg,.floating-tiktok .social-icon svg{width:25px!important;height:25px!important}}
+
+/* Recent projects: smooth fade between groups, with accessible hidden cards. */
+.recent-project-grid-fading{transition:opacity .38s ease,transform .38s ease}
+.recent-project-grid-fading.recent-fading-out{opacity:0;transform:translateY(5px)}
+.recent-project-grid-fading.recent-fading-in{animation:recentProjectsFadeIn .65s ease both}
+.recent-project[hidden]{display:none!important}
+@keyframes recentProjectsFadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.gallery-card.recent-target-highlight{outline:3px solid #d2a02b;outline-offset:3px;animation:recentProjectsFadeIn .65s ease both}
+@media(prefers-reduced-motion:reduce){.recent-project-grid-fading,.recent-project-grid-fading.recent-fading-in{animation:none;transition:none}}

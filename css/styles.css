@@ -1,0 +1,9 @@
+
+/* Recent projects cross-fade: keep cards stable and fade the entire set cleanly. */
+.recent-project-grid-fading{opacity:1;transform:none;transition:opacity .7s ease!important;will-change:opacity}
+.recent-project-grid-fading.recent-fading-out{opacity:0;transform:none!important}
+.recent-project-grid-fading.recent-fading-in{animation:recentSetFadeIn .9s ease both!important}
+@keyframes recentSetFadeIn{from{opacity:0}to{opacity:1}}
+.gallery-card.project-deep-link-highlight{outline:4px solid #d2a02b;outline-offset:4px;box-shadow:0 0 0 8px #d2a02b33,0 0 30px #d2a02b99;animation:projectTargetPulse 1.1s ease-in-out 2;position:relative;z-index:2}
+@keyframes projectTargetPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.18)}}
+@media(prefers-reduced-motion:reduce){.recent-project-grid-fading,.recent-project-grid-fading.recent-fading-in{animation:none!important;transition:none!important}.gallery-card.project-deep-link-highlight{animation:none}}

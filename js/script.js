@@ -226,6 +226,7 @@
   if (gallery && filters) {
     const items = Array.isArray(window.FORGECRAFT_GALLERY) ? window.FORGECRAFT_GALLERY : [];
     const categories = ["All", ...new Set(items.map(item => item.category).filter(Boolean))];
+    if (!categories.includes("Windows & Doors")) categories.push("Windows & Doors");
     let selected = "All";
     let searchTerm = "";
     let showAll = false;
@@ -245,7 +246,7 @@
     };
     const renderGallery = () => {
       gallery.innerHTML = "";
-      const visible = items.filter(item => (selected === "All" || item.category === selected) && [item.title, item.category, item.details, item.price, item.alt].filter(Boolean).join(" ").toLowerCase().includes(searchTerm));
+      const visible = items.filter(item => (selected === "All" || item.category === selected || (selected === "Windows & Doors" && ["Windows", "Doors", "Window", "Door"].includes(item.category))) && [item.title, item.category, item.details, item.price, item.alt].filter(Boolean).join(" ").toLowerCase().includes(searchTerm));
       if (!visible.length) {
         gallery.innerHTML = '<p class="muted gallery-empty">No projects match your search. Try another word or choose All.</p>';
         if (loadMore) loadMore.hidden = true;
@@ -274,6 +275,27 @@
       }
     };
     renderFilters(); renderGallery();
+    // Deep-link from homepage: reveal and visually highlight the exact matching project image.
+    if (gallery) {
+      const params = new URLSearchParams(window.location.search);
+      const targetImage = params.get("image");
+      if (targetImage) {
+        selected = "All"; searchTerm = ""; showAll = true;
+        renderFilters(); renderGallery();
+        window.setTimeout(() => {
+          const target = Array.from(gallery.querySelectorAll(".gallery-card img")).find(img => {
+            const source = (img.getAttribute("src") || "").split("/").pop();
+            return source.toLowerCase() === targetImage.toLowerCase();
+          });
+          if (target) {
+            const card = target.closest(".gallery-card");
+            card.classList.add("project-deep-link-highlight");
+            card.scrollIntoView({behavior: "smooth", block: "center"});
+            window.setTimeout(() => card.classList.remove("project-deep-link-highlight"), 5000);
+          }
+        }, 250);
+      }
+    }
   }
 
   // Live typewriter phrases across the homepage and interior-page hero banners.
@@ -295,24 +317,6 @@
     });
   }
 
-  // Recent project strip: rotate featured cards so additional work can be browsed.
-  const recentGrid = document.getElementById("recent-project-grid");
-  if (recentGrid && recentGrid.children.length > 1) {
-    const previous = document.getElementById("recent-prev"), next = document.getElementById("recent-next");
-    const move = direction => {
-      if (direction > 0) recentGrid.appendChild(recentGrid.firstElementChild);
-      else recentGrid.insertBefore(recentGrid.lastElementChild, recentGrid.firstElementChild);
-      recentGrid.classList.remove("carousel-refresh"); void recentGrid.offsetWidth; recentGrid.classList.add("carousel-refresh");
-    };
-    if (previous) previous.addEventListener("click", () => move(-1));
-    if (next) next.addEventListener("click", () => move(1));
-    let autoRotate = window.setInterval(() => move(1), 5000);
-    recentGrid.addEventListener("mouseenter", () => window.clearInterval(autoRotate));
-    recentGrid.addEventListener("mouseleave", () => { window.clearInterval(autoRotate); autoRotate = window.setInterval(() => move(1), 5000); });
-    recentGrid.addEventListener("focusin", () => window.clearInterval(autoRotate));
-    recentGrid.addEventListener("focusout", () => { window.clearInterval(autoRotate); autoRotate = window.setInterval(() => move(1), 5000); });
-  }
-
   // Accessible floating back-to-top control.
   const backTop = document.createElement("button");
   backTop.type = "button"; backTop.className = "back-to-top"; backTop.setAttribute("aria-label", "Back to top"); backTop.title = "Back to top"; backTop.innerHTML = "↑<span>Top</span>";
@@ -320,4 +324,29 @@
   const updateBackTop = () => backTop.classList.toggle("is-visible", window.scrollY > 420);
   window.addEventListener("scroll", updateBackTop, { passive: true }); updateBackTop();
   backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+  // Homepage recent projects: show three cards at a time with a cross-fade.
+  const recentProjectsGrid = document.getElementById("recent-project-grid");
+  if (recentProjectsGrid && recentProjectsGrid.querySelectorAll(".recent-project").length > 3) {
+    const recentCards = Array.from(recentProjectsGrid.querySelectorAll(".recent-project"));
+    let recentPage = 0; let recentTimer;
+    const showRecentPage = (page) => {
+      recentPage = (page + Math.ceil(recentCards.length / 3)) % Math.ceil(recentCards.length / 3);
+      recentProjectsGrid.classList.add("recent-fading-out");
+      window.setTimeout(() => {
+        recentCards.forEach((card, i) => { card.hidden = !(Math.floor(i / 3) === recentPage); });
+        recentProjectsGrid.classList.remove("recent-fading-out");
+        recentProjectsGrid.classList.add("recent-fading-in");
+        window.setTimeout(() => recentProjectsGrid.classList.remove("recent-fading-in"), 900);
+      }, 700);
+      const status = document.getElementById("recent-slide-status");
+      if (status) status.textContent = `Projects ${recentPage * 3 + 1}–${Math.min((recentPage + 1) * 3, recentCards.length)} of ${recentCards.length}`;
+    };
+    recentCards.forEach((card, i) => { card.hidden = i >= 3; });
+    document.getElementById("recent-prev")?.addEventListener("click", () => { showRecentPage(recentPage - 1); restartRecentTimer(); });
+    document.getElementById("recent-next")?.addEventListener("click", () => { showRecentPage(recentPage + 1); restartRecentTimer(); });
+    const restartRecentTimer = () => { window.clearInterval(recentTimer); recentTimer = window.setInterval(() => showRecentPage(recentPage + 1), 6000); };
+    restartRecentTimer();
+    recentProjectsGrid.querySelectorAll(".recent-project").forEach(card => card.addEventListener("click", () => { try { sessionStorage.setItem("jonatoh-project-target", new URL(card.href).searchParams.get("image") || ""); } catch (_) {} }));
+  }
 })();
