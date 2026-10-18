@@ -155,3 +155,9 @@ SEO CHECKLIST (IMPORTANT)
 - Before launch, replace the empty sitemap with your actual published domain URLs and add the real domain to Google Search Console.
 - SEO cannot guarantee first place on Google. Ranking depends on the real domain, local competition, useful original project photos/content, customer reviews, backlinks, page speed and Google Business Profile.
 - Confirm the actual service area and contact details before publishing.
+
+SEO note: The website is positioned as Kenya-based and open to international project enquiries. Do not imply guaranteed worldwide shipping or installation; confirm scope, logistics, compliance, delivery and installation with each client before accepting an overseas contract.
+
+
+INTERNATIONAL / WORLDWIDE SEO NOTE
+The site now clearly welcomes project enquiries from around the world while accurately identifying the workshop as based in Kenya. It does not promise worldwide shipping or installation; these must be confirmed per project. SEO changes cannot guarantee rankings. For international leads, publish genuine case studies, technical specifications, export/logistics terms, and contact details.
